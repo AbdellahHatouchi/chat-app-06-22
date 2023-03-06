@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='sweetalert2/dist/sweetalert2.min.css'>
+    </link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css">
+</head>
+
+<body>
+    <form id="myForm" name="myForm" method="get">
+        <div>
+            <label for="username">Enter name:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="useracc">Enter account number:</label>
+            <input type="text" id="useracc" name="useracc">
+        </div>
+        <div>
+            <label for="userfile">Upload file:</label>
+            <input type="file" id="userfile" name="userfile">
+        </div>
+        <input type="submit" value="Submit!" onclick="test()">
+        <button class="trigger">emoji</button>
+        <textarea name="" id="emojio" cols="30" rows="10"></textarea>
+        <div id="res"></div>
+    </form>
+    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="emoji-js/lib/emoji.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+    <script>
+        window.onsubmit = ()=>{
+
+            let a = Array.from(document.getElementsByTagName('input'))
+            let b = document.getElementsByTagName('input')
+            console.log(a)
+            console.log(b)
+            a.forEach(element => {
+                let val = a.value;
+                if (val != "" || +val > 1 && +val < 31) {
+                    res = 'error';
+                }else {
+                    res = 'seccessful'
+                }
+            });
+            document.getElementById('res').innerHTML = res;
+        }
+        // document.write("smt");
+        // $(function (){$.get("http://localhost/APP/demo.php",(data,status)=>{alert(data+" "+status)})})
+        // let myRequest = new XMLHttpRequest();
+        // myRequest.open("POST", "http://localhost/APP/demo.php");
+        // myRequest.onreadystatechange = () => {
+        //     let data = myRequest.responseText;
+        //     if (myRequest.readyState === 4 && myRequest.status === 200) {
+        //         document.write(data)
+        //     }
+        // }
+        // myRequest.send();
+    </script>
+    <!-- <script type="text/javascript">
+        import { EmojiButton } from 'node_modules/@joeattardi/emoji-button';
+
+        const picker = new EmojiButton();
+        const trigger = document.querySelector('.trigger');
+
+        picker.on('emoji', selection => {
+            trigger.innerHTML = selection.emoji;
+        });
+
+        trigger.addEventListener('click', () => picker.togglePicker(trigger));
+
+
+
+        var input = document.getElementById('username');
+        var emoji = new EmojiConvertor();
+
+        // replaces \u{1F604} with platform appropriate content
+        var output1 = emoji.replace_unified(input);
+
+        // replaces :smile: with platform appropriate content
+        var output2 = emoji.replace_colons(input);
+
+        // convert colons explicitly to unicode
+        emoji.replace_mode = 'unified';
+        emoji.allow_native = true;
+        var output3 = emoji.replace_colons(input);
+
+    </script> -->
+    <script>
+        // window.addEventListener('beforeunload', (e) => {
+        //     e.preventDefault();
+        //     e.returnValue = '';
+        // })
+        // Swal.fire('Please wait')
+        // Swal.showLoading()
+        // (async () => {
+        //     const inputOptions = new Promise((resolve) => {
+        //         setTimeout(() => {
+        //             resolve({
+        //                 'Insert, Edit & Delete': 'Insert, Edit & Delete',
+        //                 'Insert & Edit': 'Insert & Edit',
+        //                 'Insert & Delete': 'Insert & Delete',
+        //                 'Edit & Delete': 'Edit & Delete',
+        //                 'Insert': 'Insert',
+        //                 'Edit': 'Edit',
+        //                 'Delete': 'Delete'})
+        //     }, 5000)
+        // })
+        // await Swal.fire({
+        //     inputOptions: inputOptions
+        // }
+
+        // )
+        // }) ()
+        // (async () => {
+
+        //         /* inputOptions can be an object or Promise */
+        //         const inputOptions = new Promise((resolve) => {
+        //             setTimeout(() => {
+        //                 resolve({
+        //                     'Insert, Edit & Delete': 'Insert, Edit & Delete',
+        //                     'Insert & Edit': 'Insert & Edit',
+        //                     'Insert & Delete': 'Insert & Delete',
+        //                     'Edit & Delete': 'Edit & Delete',
+        //                     'Insert': 'Insert',
+        //                     'Edit': 'Edit',
+        //                     'Delete': 'Delete'
+        //                 })
+        //             }, 1000)
+        //         })
+
+        //         const { value: color } = await Swal.fire({
+        //             title: 'Select what you performed.',
+        //             input: 'radio',
+        //             inputOptions: inputOptions,
+        //             inputValidator: (value) => {
+        //                 if (!value) {
+        //                     return 'You need to choose something!'
+        //                 }
+        //             }
+        //         })
+
+        //         if (color) {
+        //             console.log(color);
+        //             // Swal.fire({ html: `You selected: ${color}` })
+        //             (async () => {
+        //                 const { value: text } = await Swal.fire({
+        //                     input: 'textarea',
+        //                     inputPlaceholder: 'Tell the approver what you changed.',
+        //                     inputAttributes: {
+        //                         'aria-label': 'Tell the approver what you changed.'
+        //                     },
+        //                     showCancelButton: true,
+        //                     inputValidator: (value) => {
+        //                         if (!value) {
+        //                             return 'You need to write something!'
+        //                         }
+        //                     }
+        //                 })
+        //                 if (text) {
+        //                     console.log(text);
+        //                 }
+        //             })();
+        //         }
+
+        //     })()
+
+    </script>
+</body>
+
+</html>
